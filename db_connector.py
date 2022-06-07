@@ -22,9 +22,9 @@ def insert_db(producer, interval, previousWin, followingWin):
     if not query_select:
         cursor.execute('INSERT INTO Winners  (producer, interval, previousWin, followingWin) VALUES (?,?,?,?)', movie_winner)
         movie_connection.commit()
-        print("Data updated on database.", cursor.rowcount)
+        return "Data updated on database."
     else:
-        print("Data already exists on database.")
+        return "Data already exists on database."
 
 
 def select_max_winners():
@@ -54,16 +54,13 @@ def search_all_producers():
     print(f"Searching on Database for producers.")
     cursor.execute("SELECT * from Winners")
     result = cursor.fetchall()
-    print(result)
     return result
 
 def update_producer(producer):
     print(f"Updating producer data. Producer: {producer}")
     values = ["'{}'".format(value) for value in producer.values()]
-    print(f"{__name__}{values}")
     id = cursor.execute("SELECT id from Winners where producer=(?)", (producer['producer'],)).fetchone()
     if id:
-        print(id[0])
         update_values = ", ".join("{} = {}".format(key, value) for key, value in zip(producer.keys(), values))
         cursor.execute(f"UPDATE Winners SET {update_values} WHERE id = {id[0]}")
         print("Producer data updated.")
