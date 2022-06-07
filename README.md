@@ -35,7 +35,6 @@ Project structure:
 4. You can use api_test.py to see examples of usage.
 
 ## Usage
-### Users endpoint
 GET http://127.0.0.1:5000/api/v1/movielist
 
 returns a top 2 producers with more years between receiving a prize
