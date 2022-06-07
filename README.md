@@ -140,6 +140,42 @@ RESPONSE
 <Response [200]>
 ```
 
+PATCH http://127.0.0.1:5000/api/v1/<producer_change>/patch_producer
+* <producer_change> will be used to select which one to change
+
+REQUEST LAYOUT
+
+```python
+patch_request = requests.patch("http://127.0.0.1:5000/api/v1/eggmancer/patch_producer", json=json_patch)
+```
+
+```json
+{
+  'followingWin': 2015, 
+  'interval': 26, 
+  'previousWin': 3015,
+  'producer': 'Egg Plant Monster of Eternal Void'
+}
+
+``` 
+
+
+RESPONSE
+
+
+```
+if producer_change is different than producer name contained 
+in json, the return will be:
+<Response [200]>
+producer informed on json is different from producer informed to change.
+
+if both producer_change and producer name in json are the same:
+<Response [200]>
+
+
+
+
+``` 
 
 
 

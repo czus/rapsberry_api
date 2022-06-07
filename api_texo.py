@@ -8,6 +8,8 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 
+
+
 @app.route('/', methods=['GET'])
 def home():
     return '''<h1>Rapsberry Golden Awards!</h1>
@@ -88,6 +90,11 @@ def add_producer():
     previousWin = content['previousWin']
     db_connector.insert_db(producer, interval, previousWin, followingWin)
     return(content)
+
+@app.route('/api/v1/<producer_change>/patch_producer', methods=['PATCH'])
+def patch_producer(producer_change):
+    content = request.json
+    return db_connector.patch_db(content, producer_change)
 
 
 @app.errorhandler(404)

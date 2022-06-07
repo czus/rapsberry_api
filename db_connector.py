@@ -71,6 +71,28 @@ def update_producer(producer):
     else:
         return "Producer not found on database."
 
+
+def patch_db(producer, producer_change):
+    print(f"Patching producer data. Producer: {producer_change}")
+    values = ["'{}'".format(value) for value in producer.values()]
+    print(f"{__name__}{values}")
+    print(producer['producer'])
+    if producer_change == producer['producer']:
+        id = cursor.execute("SELECT id from Winners where producer=(?)", (producer['producer'],)).fetchall()
+        if id:
+            update_values = ", ".join("{} = {}".format(key, value) for key, value in zip(producer.keys(), values))
+            cursor.execute(f"UPDATE Winners SET {update_values} WHERE id = {id[0]}")
+            print("Producer data updated.")
+            return "Producer data updated"
+        else:
+            return "Producer not found on database."
+    else:
+        print("producer informed on json is different from producer informed to change.")
+        return "Producer informed on json is different from producer informed to change."
+
+
+
+
 def delete(producer):
     count = cursor.execute("SELECT count(*) AS count FROM Winners WHERE producer=(?)",(producer,))
     result = cursor.execute("SELECT * from Winners where producer=(?)", (producer,))
