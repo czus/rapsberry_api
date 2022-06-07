@@ -6,7 +6,7 @@ cursor = movie_connection.cursor()
 def cria_db():
     cursor.execute("DROP TABLE IF EXISTS Winners")
     sqlite_create_table_query = '''CREATE TABLE Winners (
-                                id INTEGER PRIMARY KEY,
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
                                 producer TEXT NOT NULL,
                                 interval INT,
                                 previousWin INT NOT NULL,
