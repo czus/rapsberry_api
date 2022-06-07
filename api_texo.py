@@ -30,12 +30,6 @@ def list_winners():
                 "previousWin": list_min_winners[0][2],
                 "followingWin": list_min_winners[0][3]
             },
-            {
-                "producer": list_min_winners[1][0],
-                "interval": list_min_winners[1][1],
-                "previousWin": list_min_winners[1][2],
-                "followingWin": list_min_winners[1][3]
-            }
         ],
         "max": [
             {
@@ -44,12 +38,6 @@ def list_winners():
                 "previousWin": list_max_winners[0][2],
                 "followingWin": list_max_winners[0][3]
             },
-            {
-                "producer": list_max_winners[1][0],
-                "interval": list_max_winners[1][1],
-                "previousWin": list_max_winners[1][2],
-                "followingWin": list_max_winners[1][3]
-            }
         ]
     }
 
@@ -120,12 +108,6 @@ if __name__ == '__main__':
                 "previousWin": list_min_winners[0][2],
                 "followingWin": list_min_winners[0][3]
             },
-            {
-                "producer": list_min_winners[1][0],
-                "interval": list_min_winners[1][1],
-                "previousWin": list_min_winners[1][2],
-                "followingWin": list_min_winners[1][3]
-            }
         ],
         "max": [
             {
@@ -134,12 +116,6 @@ if __name__ == '__main__':
                 "previousWin": list_max_winners[0][2],
                 "followingWin": list_max_winners[0][3]
             },
-            {
-                "producer": list_max_winners[1][0],
-                "interval": list_max_winners[1][1],
-                "previousWin": list_max_winners[1][2],
-                "followingWin": list_max_winners[1][3]
-            }
         ]
     }
 
