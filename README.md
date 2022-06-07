@@ -30,7 +30,7 @@ Project structure:
 ## Running 
 
 1. Clone repository.
-2. pip install requirements.txt
+2. pip install -r requirements.txt
 3. Start server by running python api_texo.py
 4. You can use api_test.py to see examples of usage.
 
