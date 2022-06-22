@@ -32,7 +32,7 @@ def parse_csv_json(csv_file, json_dest):
     df.to_json(json_dest)
 
 producers_winners = []
-producers_winners_obj = [] #Database of objects containing
+producers_winners_obj = []
 
 def return_awards():
 
@@ -48,7 +48,7 @@ def return_awards():
                 year = int(movielist['year'][x])
                 movie = movielist['title'][x]
                 for producer_name in re.split(' and |,', producers_name):
-                    if producer_name: #check if string is empty
+                    if producer_name:
                         producer_name = producer_name.lstrip()
                         if producer_name not in producers_winners:
                             producers_winners.append(producer_name)
