@@ -1,5 +1,5 @@
 import flask
-import texo_parser
+import parser
 import db_connector
 from flask import request, jsonify
 
@@ -93,8 +93,8 @@ if __name__ == '__main__':
 
     db_connector.cria_db()
 
-    texo_parser.return_awards()
-    list_winners = texo_parser.time_between_title()
+    parser.return_awards()
+    list_winners = parser.time_between_title()
 
     list_min_winners = db_connector.select_min_winners()
 
